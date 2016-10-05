@@ -7,10 +7,10 @@
 (defn square [n] (* n n))
 
  "Calling a function is like giving it a hug with parentheses"
-  (= 81 (user/square 9))
+  (= 81 (square 9))
 
   "Functions are usually defined before they are used"
-  (= 20 (user/multiply-by-ten 2))
+  (= 20 (multiply-by-ten 2))
 
   "But they can also be defined inline"
   (= 10 ((fn [n] (* 5 n)) 2))
@@ -28,12 +28,10 @@
   (= 9 (((fn [] 9)) 4 5))
 
   "Functions can also take other functions as input"
-  (= 20 ((fn [f] (f 4 5))
-           ___))
+  (= 20 ((fn [f] (f 4 5)) *))
 
   "Higher-order functions take function arguments"
-  (= 25 (___
-          (fn [n] (* n n))))
+  (= 25 ((fn [aFunction] (aFunction5)) (fn [n] (* n n))))
 
   "But they are often better written using the names of functions"
-  (= 25 (___ square))
+  (= 25 (5 square))
