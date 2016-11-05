@@ -43,5 +43,5 @@
      (explain-exercise-velocity :bicycling))
 
   "But admit it when you don't know what to do"
-  (= nil
+  (= "is that even exercise?"
      (explain-exercise-velocity :watching-tv))
