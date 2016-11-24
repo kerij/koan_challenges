@@ -25,9 +25,9 @@
         acc 1]
     (if (= 0 n)
       acc
-      (recur (dec 1) (* n acc)))))
+      (recur (dec n) (* n acc)))))
 
-(meditations
+
   "Recursion ends with a base case"
   (= true (is-even? 0))
 
@@ -59,5 +59,5 @@
   (< 1000000000000000000000000N (factorial 1000N))
 
   "But what happens when the machine limits you?"
-  (< 1000000000000000000000000N (factorial 100003N)))
+  (< 1000000000000000000000000N (factorial 100003N))
 
