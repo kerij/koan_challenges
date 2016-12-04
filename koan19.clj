@@ -18,7 +18,7 @@
 (deftype Razzie [category]
   Award
   (present [this recipient]
-    __))
+    award))
 
 (meditations
   "Holding records is meaningful only when the record is worthy of you"
