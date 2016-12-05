@@ -18,25 +18,37 @@
 (deftype Razzie [category]
   Award
   (present [this recipient]
-    award))
+    (print (str "Congratulations on your "
+            (:category this) " Razzie, "
+            recipient
+            "!"))))
 
 (meditations
   "Holding records is meaningful only when the record is worthy of you"
-  (= __ (.prize (Nobel. "peace")))
+  (= "peace" (.prize (Nobel. "peace")))
 
   "Types are quite similar"
-  (= __ (.prize (Pulitzer. "literature")))
+  (= "literature" (.prize (Pulitzer. "literature")))
 
   "Records may be treated like maps"
-  (= __ (:prize (Nobel. "physics")))
+  (= "physics" (:prize (Nobel. "physics")))
 
   "While types may not"
-  (= __ (:prize (Pulitzer. "poetry")))
+  (= nil (:prize (Pulitzer. "poetry")))
 
   "Further study reveals why"
-  (= __
+  (= [true false]
      (map map? [(Nobel. "chemistry")
                 (Pulitzer. "music")]))
+
+  "Either sort of datatype can define methods in a protocol"
+  (= __
+     (with-out-str (present (Oscar. "Best Picture") "Evil Alien Conquerors")))
+
+  "Surely we can implement our own by now"
+  (= "You're really the Worst Picture, Final Destination 5... sorry."
+     (with-out-str (present (Razzie. "Worst Picture") "Final Destination 5"))))
+
 
   "Either sort of datatype can define methods in a protocol"
   (= __
