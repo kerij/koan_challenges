@@ -18,10 +18,10 @@
 (deftype Razzie [category]
   Award
   (present [this recipient]
-    (print (str "Congratulations on your "
-            (:category this) " Razzie, "
+    (print (str "You're really the "
+            category ", "
             recipient
-            "!"))))
+            "... sorry."))))
 
 (meditations
   "Holding records is meaningful only when the record is worthy of you"
@@ -41,17 +41,8 @@
      (map map? [(Nobel. "chemistry")
                 (Pulitzer. "music")]))
 
-  "Either sort of datatype can define methods in a protocol"
-  (= __
-     (with-out-str (present (Oscar. "Best Picture") "Evil Alien Conquerors")))
-
-  "Surely we can implement our own by now"
-  (= "You're really the Worst Picture, Final Destination 5... sorry."
-     (with-out-str (present (Razzie. "Worst Picture") "Final Destination 5"))))
-
-
-  "Either sort of datatype can define methods in a protocol"
-  (= __
+   "Either sort of datatype can define methods in a protocol"
+  (= "Congratulations on your Best Picture Oscar, Evil Alien Conquerors!"
      (with-out-str (present (Oscar. "Best Picture") "Evil Alien Conquerors")))
 
   "Surely we can implement our own by now"
